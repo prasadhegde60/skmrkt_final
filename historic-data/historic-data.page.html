@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Historic Data</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!isConnected">
+    <p> PLease check internet connectivitiy</p>
+  </div>
+  <div *ngIf="isConnected">
+    <div *ngIf="isLoading" class="div-calls-wait">
+      <ion-spinner color="primary"></ion-spinner>
+    </div>
+    <div *ngIf="!isLoading">
+      <div *ngIf="historicData.length <= 0" class="div-calls-wait">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-sm="8" offset-sm="2">
+              <p> Watch this space for Live Trade Calls</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div *ngIf="historicData.length > 0">
+        
+          <mat-table [dataSource]="dataSource" class="mat-elevation-z8 " matSort>
+            <ng-container matColumnDef="date">
+              <mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition="after" start="desc"> Date </mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.date | date: 'dd/MM/yy'}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="symbol">
+              <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.symbol}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <mat-header-cell *matHeaderCellDef> Call </mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.action}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="trigger">
+              <mat-header-cell *matHeaderCellDef> Trigger </mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.trigger}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="stopLoss">
+              <mat-header-cell *matHeaderCellDef> Stop </mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.stopLoss}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="target">
+              <mat-header-cell *matHeaderCellDef> Target </mat-header-cell>
+              <mat-cell *matCellDef="let user"> {{user.target}} </mat-cell>
+            </ng-container>
+            
+            <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        
+          </mat-table>
+        <mat-paginator 
+        [length]="dataSource.data.length"
+        [pageIndex]="0"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 15]"
+        showFirstLastButtons></mat-paginator>
+    
+      </div>
+    </div>
+  </div>
+</ion-content>

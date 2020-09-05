@@ -1,0 +1,46 @@
+mat-table {
+  width: 90%;
+  margin: 5px auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+
+.mat-header-cell:first-child {
+  flex:13%;
+}
+
+.mat-cell:first-child{
+  flex:13%;
+}
+
+.mat-header-cell {
+  font-weight: bolder;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mat-cell {
+  text-align: center;
+  justify-content:center;
+}
+
+
+
+.mat-sort-header-container .mat-sort-header-arrow {
+  opacity: 0.54 !important;
+  transform: translateY(0px) !important;
+}
+
+
+
+
+
+
+
+
+
+
