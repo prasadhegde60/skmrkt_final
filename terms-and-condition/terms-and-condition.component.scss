@@ -1,0 +1,26 @@
+.my-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+ion-row {
+    display: flex;
+    justify-content: center;
+}
+
+.cdk-overlay-pane {
+    position: relative!important;
+  }
+  .close-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    line-height: 14px;
+    min-width: auto;
+  }
+
+.mat-dialog-title {
+  justify-content: center;
+  text-align: center;
+}

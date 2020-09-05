@@ -1,0 +1,32 @@
+<ion-header >
+  <ion-toolbar mode="ios" >
+      <ion-title>Portfolio</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!isConnected">
+    <p> PLease check internet connectivitiy</p>
+  </div>
+  <div *ngIf="isConnected">
+    <div class="ion-text-center" *ngIf="!isLoading">
+      <ion-grid  style="height: 100%">
+        <ion-row>
+          <ion-col class="align-center">
+            <ion-card>
+              <ion-card-header color="dark">
+                <ion-card-title class="ion-text-center">{{portfolioValue}} %</ion-card-title>
+              </ion-card-header>
+              <ion-card-content color="dark">
+                <ion-label><h1>Current Portfolio Value</h1></ion-label>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid> 
+    </div>
+  </div>
+</ion-content>

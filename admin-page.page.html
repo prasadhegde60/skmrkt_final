@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar mode=ios>
+    <ion-buttons slot="start" >
+      <ion-back-button text="" icon="chevron-back-sharp" defaultHref="/home" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Admin-page</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onEodPage()">
+        <ion-icon slot="icon-only" name="ellipsis-vertical-circle-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="!isConnected">
+    <p> PLease check internet connectivitiy</p>
+  </div>
+  <div *ngIf="isConnected">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-no-padding"> 
+            <ion-card>
+            <ion-item>
+              <ion-label position="floating">Symbol</ion-label>
+              <ion-input type="text" ngModel name="symbol" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Action</ion-label>
+              <ion-select interface="popover" ngModel name="action" required>
+                <ion-select-option value="buy">Buy</ion-select-option>
+                <ion-select-option value="sell">Sell</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Trigger Price</ion-label>
+              <ion-input type="text" ngModel name="triggerPrice" required (keypress)="numberOnlyValidation($event)"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Stop Loss</ion-label>
+              <ion-input type="text" ngModel name="stopLoss" required (keypress)="numberOnlyValidation($event)"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Target Price</ion-label>
+              <ion-input type="text" ngModel name="targetPrice" required (keypress)="numberOnlyValidation($event)"></ion-input>
+            </ion-item>
+          </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-right">
+            <ion-button type="submit" color="success" [disabled]="!f.valid">  
+              <ion-icon name="thumbs-up-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col class="ion-text-left">
+            <ion-button type="reset" color="danger">
+              <ion-icon name="thumbs-down-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+      </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>
+
+

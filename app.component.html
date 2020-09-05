@@ -1,0 +1,90 @@
+<ion-app>
+  <ion-menu side="start">
+    
+    <ion-header>
+      <ion-toolbar color="light">
+        <div *ngIf="isLoggedIn">
+          <ion-item class="avatar-div" lines="none">
+            <ion-avatar>
+              <img src="../../assets/icon/user-profile.jfif">
+            </ion-avatar>
+          </ion-item>
+          <ion-menu-toggle>
+            <ion-item (click)="onUserPage()">
+              <ion-label class="ion-label-class">{{userEmail}}</ion-label>
+              <ion-icon class="ion-chevron-label" slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+          </ion-menu-toggle>
+        </div>
+        <div *ngIf="!isLoggedIn">
+          <ion-title> Trade Buddy </ion-title>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+
+
+
+    <ion-content>
+      <ion-list>
+        <div *ngIf="isLoggedOut">
+          <ion-menu-toggle>
+            <ion-item lines="none">
+              <ion-icon slot="start" name="enter-sharp" class="left-align-icons about-us-class-icon"></ion-icon>
+                <ion-label (click)="onLogin()">Login</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </div>
+
+        <div *ngIf="isAdmin">
+          <ion-menu-toggle>
+            <ion-item lines="none">
+              <ion-icon slot="start" name="person-sharp" class="left-align-icons about-us-class-icon"></ion-icon>
+                <ion-label (click)="onAdminPage()">Admin Page</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </div>
+
+        <div *ngIf="isStandard">
+          <ion-menu-toggle>
+            <ion-item lines="none">
+              <ion-icon slot="start" name="star-sharp" class="left-align-icons star-class-icon"></ion-icon>
+                <ion-label (click)="onUpgrade()">Upgrade to Premium</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </div>
+
+        <ion-menu-toggle>
+          <ion-item lines="none">
+            <ion-icon slot="start" name="information-circle-sharp" class="left-align-icons about-us-class-icon"></ion-icon>
+              <ion-label (click)="onAboutUs()">About Us</ion-label>
+          </ion-item>
+            <!--<ion-label>About Us</ion-label> -->
+          
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item lines="none">
+            <ion-icon slot="start" name="alert-circle-sharp" class="left-align-icons about-us-class-icon"></ion-icon>
+              <ion-label (click)="onDisclaimer()">Disclaimer</ion-label>
+          </ion-item>
+            <!--<ion-label>About Us</ion-label> -->
+          
+        </ion-menu-toggle>
+        
+        <div *ngIf="isLoggedIn">
+        <ion-menu-toggle>
+          <ion-item lines="none" (click)="logout()">
+            <ion-icon slot="start" name="arrow-back-circle-sharp" class="left-align-icons about-us-class-icon"></ion-icon>
+              <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>  
+        </div>
+      </ion-list>
+    </ion-content>
+    <ion-footer>
+      
+    </ion-footer>
+
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-app>

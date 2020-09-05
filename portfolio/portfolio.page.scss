@@ -1,0 +1,16 @@
+.align-center {
+    height: calc(100vh - 56px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ion-content {
+    --background: none;
+    background-image: url('../../../assets/icon/stk2.jfif');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
