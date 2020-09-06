@@ -1,0 +1,120 @@
+<ion-header translucent no-border>
+  <ion-toolbar mode=ios>
+    <ion-buttons slot="start" >
+      <ion-back-button text="" icon="chevron-back-sharp" defaultHref="/user-page" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Success Page</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="shopping-wrapper">
+    <div class="container">
+      <div class="shoping-heading">
+        <h3>Your Shoping Basket ({{ 100 }} item)</h3>
+      </div>
+  
+      <div class="my-cart-sec">
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="cart-left-sec">
+              <div class="cart-top">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="top-head">
+                      <h5>My Cart ({{ 100 }})</h5>
+                    </div>
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="top-head-right">
+                      <div class="cart-del-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZWxsaXBzZSBjeD0iOSIgY3k9IjE0LjQ3OCIgZmlsbD0iI0ZGRTExQiIgcng9IjkiIHJ5PSIzLjUyMiIvPjxwYXRoIGZpbGw9IiMyODc0RjAiIGQ9Ik04LjYwOSA3LjAxYy0xLjA4IDAtMS45NTctLjgyNi0xLjk1Ny0xLjg0NSAwLS40ODkuMjA2LS45NTguNTczLTEuMzA0YTIuMDIgMi4wMiAwIDAgMSAxLjM4NC0uNTRjMS4wOCAwIDEuOTU2LjgyNSAxLjk1NiAxLjg0NCAwIC40OS0uMjA2Ljk1OS0uNTczIDEuMzA1cy0uODY0LjU0LTEuMzgzLjU0ek0zLjEzIDUuMTY1YzAgMy44NzQgNS40NzkgOC45MjIgNS40NzkgOC45MjJzNS40NzgtNS4wNDggNS40NzgtOC45MjJDMTQuMDg3IDIuMzEzIDExLjYzNCAwIDguNjA5IDAgNS41ODMgMCAzLjEzIDIuMzEzIDMuMTMgNS4xNjV6Ii8+PC9nPjwvc3ZnPg==" alt="" />
+                        <span> Deliver to : </span>
+                      </div>
+                      &nbsp;
+                      <div class="cart-location">
+                        <span> Hyderabad </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              
+  
+           
+            </div>
+            <ng-container *ngIf="100 == 0">
+              <div  class="empty-cart">
+                  <div>
+                      <h1>
+                              Your Shopping Cart is empty.
+                       </h1>
+                  </div>
+              
+                  <div>
+                      <p>
+                          Your Shopping Cart lives to serve. Give it purpose--fill it with Shirts, Jeans, T-Shirts, Watches, and more.
+              
+                          <br /> Continue shopping on the
+                          <a  routerLink="/">stylemirror.in homepage</a>,
+                           learn about
+                                <a  href="/gp/goldbox/ref=ord_cart_empty" >today's deals</a  >,
+                                   or visit your
+                                <a href="/gp/registry/wishlist/ref=ord_cart_empty" >Wish List</a >.
+                              </p>
+                            </div>
+                        </div>
+          </ng-container>
+          </div>
+     
+          <div class="col-sm-4">
+            <div class="item-price-details">
+              <div class="price-box">
+                <div class="price-heading heading-border">
+                  <h5>PRICE DETAILS</h5>
+                </div>
+                <div class="price-section">
+                  <div class="price-item">
+                    Price ({{ 100 }}
+                    {{ 100 > 1 ? "items" : "item" }})<span>
+                      ₹{{ 100 }}</span
+                    >
+                  </div>
+                  <div class="price-item">
+                    Delivery<span>
+                      <span class="free-shiping shiping-charges"> free</span>
+                    </span>
+                  </div>
+  
+                  <div class="price-total">
+                    <div class="price-item">
+                      Total Payable<span> ₹{{ 100 }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="price-save bottom-border">
+                  You will save ₹560 on this order
+                </div>
+  
+                <div class="order-place">
+                  <a (click)="proceedToPay($event)" class="btn btn-order">
+                      <ng-container *ngIf=true>
+                          <i class="fa fa-circle-o-notch fa-spin"></i> Processing
+                      </ng-container>
+                      <ng-container *ngIf=true> 
+                        Proceed to Pay
+                      </ng-container>
+                   </a>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+        </div>
+  
+        
+      </div>
+    </div>
+  </div>
+</ion-content>
