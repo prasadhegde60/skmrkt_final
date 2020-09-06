@@ -1,0 +1,38 @@
+<ion-header translucent no-border>
+  <ion-toolbar mode=ios>
+    <ion-buttons slot="start" >
+      <ion-back-button text="" icon="chevron-back-sharp" defaultHref="/home" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Profile</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" slot="fixed" >
+    <div class="card">
+      <div class="header">
+        <div class="avatar">
+          <img src="../../assets/icon/user-profile.jfif" alt="">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="user-meta ion-text-center">
+          <h3 class="email">{{emailId}}</h3>
+          <div></div>
+          <h5  class="role">{{role}}</h5>
+        </div>
+      </div>
+    </div>
+</ion-content>
+<div *ngIf="isStandard">
+  <ion-footer>
+    <ion-grid>
+      <ion-row class="ion-row-footer">
+        Do you want to view Live Trade calls ?
+      </ion-row>
+      <ion-button expand="full" color="primary" class="card-button" color="warning" (click)="onUpgradeToPremium()">Upgrade to Premium</ion-button>
+    </ion-grid>
+  </ion-footer>
+  </div>
+        
+
+     
