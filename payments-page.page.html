@@ -1,0 +1,21 @@
+<ion-header translucent no-border>
+  <ion-toolbar mode=ios>
+    <ion-buttons slot="start" >
+      <ion-back-button text="" icon="chevron-back-sharp" defaultHref="/user-page" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Make Payment</ion-title>
+</ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+</ion-content>
+
+<ion-footer>
+  <ion-grid>   
+    <ion-button expand="full" color="primary" class="card-button" color="warning" (click)="onMakePayment()">Proceed to pay Rs.{{finalAmount}}</ion-button> 
+    <div class='pm-button'><a href='https://www.payumoney.com/paybypayumoney/#/BB1527FC2CF5FAD55A9478E46F7C7C0A'><img src='https://www.payumoney.com/media/images/payby_payumoney/new_buttons/13.png' /></a></div>
+    
+  </ion-grid>
+</ion-footer>
